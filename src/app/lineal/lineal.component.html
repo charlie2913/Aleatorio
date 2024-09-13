@@ -34,6 +34,12 @@
   </div>
 </div>
 
+<!-- Sección para mostrar a, c, g, m -->
+<div class="result-summary" *ngIf="resultados.length > 0">
+  <div><strong>a:</strong> {{ resultados[0].a }} ;<strong>  c:</strong> {{ resultados[0].c }}</div>
+  <div><strong>g:</strong> {{ resultados[0].g }} ;<strong>m:</strong> {{ resultados[0].m }}</div>
+</div>
+
 <div class="table-container">
   <table mat-table [dataSource]="resultados" class="mat-elevation-z8">
     <!-- Iteration Column -->
@@ -42,40 +48,10 @@
       <td mat-cell *matCellDef="let element"> {{element.i}} </td>
     </ng-container>
 
-    <!-- a Column -->
-    <ng-container matColumnDef="a">
-      <th mat-header-cell *matHeaderCellDef> a </th>
-      <td mat-cell *matCellDef="let element"> {{element.a}} </td>
-    </ng-container>
-
     <!-- Xi-1 Column -->
     <ng-container matColumnDef="xi_1">
       <th mat-header-cell *matHeaderCellDef> X<sub>i-1</sub> </th>
       <td mat-cell *matCellDef="let element"> {{element.xi_1}} </td>
-    </ng-container>
-
-    <!-- c Column -->
-    <ng-container matColumnDef="c">
-      <th mat-header-cell *matHeaderCellDef> c </th>
-      <td mat-cell *matCellDef="let element"> {{element.c}} </td>
-    </ng-container>
-
-    <!-- P Column -->
-    <ng-container matColumnDef="p">
-      <th mat-header-cell *matHeaderCellDef> P </th>
-      <td mat-cell *matCellDef="let element"> {{element.p}} </td>
-    </ng-container>
-
-    <!-- g Column -->
-    <ng-container matColumnDef="g">
-      <th mat-header-cell *matHeaderCellDef> g </th>
-      <td mat-cell *matCellDef="let element"> {{element.g}} </td>
-    </ng-container>
-
-    <!-- m Column -->
-    <ng-container matColumnDef="m">
-      <th mat-header-cell *matHeaderCellDef> m </th>
-      <td mat-cell *matCellDef="let element"> {{element.m}} </td>
     </ng-container>
 
     <!-- Xi Column -->
@@ -90,9 +66,10 @@
       <td mat-cell *matCellDef="let element"> {{element.ri}} </td>
     </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="['i', 'a', 'xi_1', 'c', 'p', 'g', 'm', 'xi', 'ri']"></tr>
-    <tr mat-row *matRowDef="let row; columns: ['i', 'a', 'xi_1', 'c', 'p', 'g', 'm', 'xi', 'ri'];"></tr>
+    <tr mat-header-row *matHeaderRowDef="['i', 'xi_1', 'xi', 'ri']"></tr>
+    <tr mat-row *matRowDef="let row; columns: ['i', 'xi_1', 'xi', 'ri'];"></tr>
   </table>
 </div>
+
 
 

@@ -87,6 +87,26 @@
   padding: 0;
 }
 
+.result-summary {
+  margin: 20px 0;
+  margin-left: 300px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  font-size: 28px;
+  max-width: 800px;
+  text-align: center; /* Centra el texto horizontalmente */
+  display: flex; /* Añade flexbox */
+  justify-content: center; /* Centra el contenido horizontalmente */
+  align-items: center; /* Centra el contenido verticalmente */
+  flex-direction: column; /* Asegura que el contenido esté en columna */
+}
+
+.result-summary div {
+  margin-bottom: 10px;
+}
+
 .table-container {
   width: 80%;
   display: flex;
@@ -99,17 +119,3 @@ table {
   max-width: 800px;
   margin: 20px 0;
 }
-
-.degeneracion-message {
-  display: block;
-  text-align: center;
-  font-size: 18px;
-  color: #d9534f;
-  margin: 20px auto;
-  max-width: 600px;
-  padding: 10px;
-  border: 1px solid #d9534f;
-  border-radius: 8px;
-  background-color: #f9f9f9;
-}
-

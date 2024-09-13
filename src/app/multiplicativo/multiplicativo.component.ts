@@ -1,29 +1,58 @@
 import { Component } from '@angular/core';
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Multi', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
-];
 @Component({
   selector: 'app-multiplicativo',
   templateUrl: './multiplicativo.component.html',
   styleUrls: ['./multiplicativo.component.css']
 })
 export class MultiplicativoComponent {
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = ELEMENT_DATA;
+  x0: number | null = null;
+  k: number | null = null;
+  aOption: string = '3+8k';  // Opción seleccionada para 'a'
+  p: number | null = null;
+  g: number | null = null;
+  m: number | null = null;
+  a: number | null = null;
+  d: number | null = null;
+
+  resultados: Array<{ i: number, xi_1: number, operacion: string, xi: number, ri: number }> = [];
+
+  generarNumeros(): void {
+    if (this.x0 === null || this.k === null || this.p === null || this.d === null) {
+      return;
+    }
+
+    this.g = Math.ceil(Math.log2(this.p)); // Calculando g
+    this.m = Math.pow(2, this.g); // Calculando m
+
+    // Determinando 'a' según la opción seleccionada
+    if (this.aOption === '3+8k') {
+      this.a = 3 + 8 * this.k;
+    } else if (this.aOption === '5+8k') {
+      this.a = 5 + 8 * this.k;
+    }
+
+    let xi = this.x0;
+    this.resultados = [];
+
+    for (let i = 1; i <= this.p!; i++) {
+      const xi_1 = xi;
+      const operacion = `${this.a} * ${xi_1} mod ${this.m}`;
+      // @ts-ignore
+      xi = (this.a * xi_1) % this.m;
+      const ri = parseFloat((xi / (this.m - 1)).toFixed(this.d));
+      this.resultados.push({ i, xi_1, operacion, xi, ri });
+    }
+  }
+
+  limpiarTabla(): void {
+    this.resultados = [];
+    this.x0 = null;
+    this.k = null;
+    this.p = null;
+    this.g = null;
+    this.m = null;
+    this.a = null;
+    this.d = null;
+  }
 }
