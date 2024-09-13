@@ -1,0 +1,115 @@
+.input-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  max-width: 1400px;
+  margin: 20px auto;
+}
+
+.input-wrapper {
+  position: relative;
+  flex: 1;
+}
+
+.input-label {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: #333;
+  pointer-events: none;
+}
+
+.number-input {
+  width: 60%;
+  padding: 12px 20px 12px 40px;
+  font-size: 18px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.number-input:focus {
+  border-color: #007BFF;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+}
+
+.button-container {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.calculate-button, .clear-button {
+  padding: 12px 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.calculate-button {
+  color: #fff;
+  background-color: #007BFF;
+}
+
+.calculate-button:hover {
+  background-color: #0056b3;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.clear-button {
+  color: #fff;
+  background-color: #dc3545;
+}
+
+.clear-button:hover {
+  background-color: #c82333;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.title-container {
+  margin: 20px 0;
+  margin-left: 20px;
+  text-align: left;
+}
+
+.title-container h1 {
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.table-container {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  margin-left: 165px;
+}
+
+table {
+  width: 80%;
+  max-width: 800px;
+  margin: 20px 0;
+}
+
+.degeneracion-message {
+  display: block;
+  text-align: center;
+  font-size: 18px;
+  color: #d9534f;
+  margin: 20px auto;
+  max-width: 600px;
+  padding: 10px;
+  border: 1px solid #d9534f;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
